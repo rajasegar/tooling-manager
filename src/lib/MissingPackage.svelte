@@ -1,7 +1,6 @@
 <script>
 
  import { createPopper } from "@popperjs/core";
- import data from '../data';
 
  let popoverShow = false;
 
@@ -9,6 +8,7 @@
 
  let popoverRef;
 
+ export let data;
  export let name;
 
   const getStdPackagesForCategory = (category) => {

@@ -1,7 +1,6 @@
 <script>
 
  import { createPopper } from "@popperjs/core";
- import data from '../data';
 
  let popoverShow = false;
 
@@ -11,8 +10,8 @@
 
  export let name;
  export let dependencies;
+ export let data;
 
- console.log(dependencies.includes["node-sass"]);
   const getPackagesForCategory = (category) => {
    return data
      .filter(p => p.category === category && dependencies.includes(p.name))
@@ -37,7 +36,7 @@
 
 <div class="flex flex-wrap">
   <div class="w-full text-left">
-    <button bind:this="{btnRef}" on:click={togglePopover} class="bg-green-500 text-white active:bg-green-600  text-sm px-2 py-1 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+    <button bind:this="{btnRef}" on:click={togglePopover} class="bg-green-600 text-white text-sm px-2 py-1 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
       {name} ({getPackagesForCategory(name).length})
     </button>
     <div bind:this="{popoverRef}" class="bg-blue-600 border-0 mr-3 block z-50 font-normal leading-normal text-sm max-w-xs text-left no-underline break-words rounded-lg {popoverShow ? 'block':'hidden'}">
@@ -48,7 +47,7 @@
         <div class="text-white p-3 m-2">
 	  <ul class="list-disc">
 	    {#each getPackagesForCategory(name) as p}
-	      <li><a href="#">{p}</a></li>
+	      <li><a href="https://npmjs.com/package/{p}" target="_blank">{p}</a></li>
 	      {/each}
 	  </ul>
         </div>

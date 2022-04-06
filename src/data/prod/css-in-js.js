@@ -35,4 +35,32 @@ export default [
     "name": "styled-jsx",
 	    "category": "CSS-in-JS"
   },
+  {
+    "name": "styled-ui-kit",
+	    "category": "CSS-in-JS"
+  },
+  {
+    "name": "react-emotion",
+	    "category": "CSS-in-JS"
+  },
+  {
+    "name": "@rebass/grid",
+	    "category": "CSS-in-JS"
+  },
+  {
+    "name": "reactcss",
+	    "category": "CSS-in-JS"
+  },
+  {
+    "name": "emotion",
+	    "category": "CSS-in-JS"
+  },
+  {
+    "name": "emotion-theming",
+	    "category": "CSS-in-JS"
+  },
+  {
+    "name": "polished",
+	    "category": "CSS-in-JS"
+  },
 ]

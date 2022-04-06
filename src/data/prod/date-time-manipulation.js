@@ -19,4 +19,8 @@ export default [
     "name": "date-fns",
 	    "category": "Date & Time Manipulation"
   },  
+  {
+    "name": "react-moment",
+	    "category": "Date & Time Manipulation"
+  },  
 ];

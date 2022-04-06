@@ -21,4 +21,16 @@ export default [
     "name": "redux-api-middleware",
 	    "category": "State Management"
   },
+  {
+    "name": "react-router-redux",
+	    "category": "State Management"
+  },
+  {
+    "name": "unstated",
+	    "category": "State Management"
+  },
+  {
+    "name": "reselect",
+	    "category": "State Management"
+  },
 ];
