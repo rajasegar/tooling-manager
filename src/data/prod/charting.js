@@ -1,19 +1,23 @@
 export default [
     {
     "name": "d3",
-	    "category": "Charting"
+	"category": "Charting",
+	alternatives:['c3', 'plotly.js','highcharts']
   },
   {
     "name": "c3",
-	    "category": "Charting"
+      "category": "Charting",
+	alternatives:['d3', 'plotly.js','highcharts']
   },
   {
     "name": "plotly.js",
-	    "category": "Charting"
+      "category": "Charting",
+	alternatives:['d3', 'c3','highcharts']
   },
   {
     "name": "highcharts",
-	    "category": "Charting"
+      "category": "Charting",
+	alternatives:['d3', 'c3','plotly.js']
   },
   {
     "name": "highcharts-react-official",

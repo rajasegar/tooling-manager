@@ -1,6 +1,7 @@
 export default [
     {
 	name: 'react-collapse',
-	category: 'Collapse & Accordions'
+	category: 'Collapse & Accordions',
+	alternatives:[]
     }
 ]

@@ -35,7 +35,7 @@ const stdPackages = data.map(d => d.name);
   <div class="grid grid-cols-3 gap-4">
   <div class="bg-green-100 w-100">
     <h2 class="bg-green-700 text-white text-xl text-center p-2 mb-4">FOUND:</h2>
-    <table>
+    <table class="w-full">
       {#each found as f}
 	<tr>
 	  <td class="px-4">
