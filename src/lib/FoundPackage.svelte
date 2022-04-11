@@ -1,6 +1,5 @@
 <script>
 
-
  import Accordion from './Accordion.svelte';
  import AccordionItem from './AccordionItem.svelte';
  import alternative from '../assets/alternative.svg';
@@ -17,17 +16,6 @@
    return data
      .filter(p => p.category === category && dependencies.includes(p.name))
   } 
-
- const getAlternatives = (name) => {
-   return data
-     .filter(p => p.name === name)
-   .map(p => p.alternatives || [])
-   
- }
-
-
-
- 
 
 
 </script>

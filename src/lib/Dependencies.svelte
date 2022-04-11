@@ -47,7 +47,7 @@ const stdPackages = data.map(d => d.name);
   </div>
   <div class="bg-orange-100 w-100">
     <h2 class="bg-orange-700 text-white text-xl text-center p-2 mb-4">MISSING:</h2>
-    <table>
+    <table class="w-full">
       {#each missing as m}
 	<tr>
 	  <td class="px-4">
