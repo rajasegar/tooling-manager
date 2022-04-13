@@ -42,6 +42,10 @@ export default [
 	    "category": "CSS Utilities"
   },
   {
+    "name": "sanitize.css",
+	    "category": "CSS Utilities"
+  },
+  {
     "name": "cssjanus",
 	    "category": "RTL"
   },

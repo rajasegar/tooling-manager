@@ -8,6 +8,10 @@ export default [
 	    "category": "i18n"
   },
   {
+    "name": "i18next-browser-languagedetector",
+	    "category": "i18n"
+  },
+  {
     "name": "react-intl",
 	    "category": "i18n"
   },

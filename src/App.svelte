@@ -33,7 +33,7 @@ const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN });
      const manifest = JSON.parse(e.target.result);
      /* currDependencies = Object.keys(manifest.dependencies); */
      currDependencies = manifest.dependencies;
-     currDevDependencies = Object.keys(manifest.devDependencies);
+     currDevDependencies = manifest.devDependencies;
      isPkgUploaded = true;
    };
  }
@@ -58,7 +58,7 @@ const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN });
      repo,
      path: repoPath || 'package.json',
    }).then(response => {
-     pkg = { name: `${owner}/${repo}/package.json` };
+     pkg = { name: `${owner}/${repo}` };
       const manifest = JSON.parse(atob(response.data.content));
      currDependencies = manifest.dependencies;
      currDevDependencies = manifest.devDependencies;

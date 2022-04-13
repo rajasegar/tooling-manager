@@ -18,6 +18,14 @@ export default [
 	    "category": "State Management"
   },
   {
+    "name": "redux-saga",
+	    "category": "State Management"
+  },
+  {
+    "name": "redux-injectors",
+	    "category": "State Management"
+  },
+  {
     "name": "redux-api-middleware",
 	    "category": "State Management"
   },

@@ -8,6 +8,10 @@ export default [
 	category: 'Style Lint'
     },
     {
+	name: 'stylelint-config-recommended',
+	category: 'Style Lint'
+    },
+    {
 	name: 'stylelint-config-styled-components',
 	category: 'Style Lint'
     },

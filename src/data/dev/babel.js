@@ -67,4 +67,45 @@ export default [
 	name: 'babel-polyfill',
 	category: 'Babel'
     },
+    {
+	name: '@babel/plugin-transform-modules-commonjs',
+	category: 'Babel'
+    },
+    {
+	name: '@babel/plugin-transform-react-constant-elements',
+	category: 'Babel'
+    },
+    {
+	name: '@babel/plugin-transform-react-inline-elements',
+	category: 'Babel'
+    },
+    {
+	name: '@babel/register',
+	category: 'Babel'
+    },
+    {
+	name: 'babel-core',
+	category: 'Babel'
+    },
+    {
+	name: 'babel-plugin-dynamic-import-node',
+	category: 'Babel'
+    },
+    {
+	name: 'babel-plugin-lodash',
+	category: 'Babel'
+    },
+    {
+	name: 'babel-plugin-react-intl',
+	category: 'Babel'
+    },
+    {
+	name: 'babel-plugin-styled-components',
+	category: 'Babel'
+    },
+    {
+	name: 'babel-plugin-transform-react-remove-prop-types',
+	category: 'Babel'
+    },
+    
 ]

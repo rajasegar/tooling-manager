@@ -35,4 +35,40 @@ export default [
 	name: '@types/react-window',
 	category: 'TypeScript'
     },
+    {
+	name: '@types/fontfaceobserver',
+	category: 'TypeScript'
+    },
+    {
+	name: '@types/react-router-dom',
+	category: 'TypeScript'
+    },
+    {
+	name: '@types/react-test-renderer',
+	category: 'TypeScript'
+    },
+    {
+	name: '@types/rimraf',
+	category: 'TypeScript'
+    },
+    {
+	name: '@types/shelljs',
+	category: 'TypeScript'
+    },
+    {
+	name: '@types/styled-components',
+	category: 'TypeScript'
+    },
+    {
+	name: '@types/webpack',
+	category: 'TypeScript'
+    },
+    {
+	name: '@types/webpack-env',
+	category: 'TypeScript'
+    },
+    {
+	name: '@types/testing-library__jest-dom',
+	category: 'TypeScript'
+    },
 ]

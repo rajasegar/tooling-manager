@@ -15,4 +15,12 @@ export default [
 	name: 'commitlint',
 	category: 'Linting'
     },
+    {
+	name: '@commitlint/cli',
+	category: 'Commit Lint'
+    },
+    {
+	name: '@commitlint/config-conventional',
+	category: 'Commit Lint'
+    },
 ]

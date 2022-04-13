@@ -1,6 +1,7 @@
 import Testing from './testing';
 import BuildTooling from './build-tooling';
 import BabelTooling from './babel';
+import CodeCoverage from './code-coverage';
 import ESLintTooling from './eslint-tooling';
 import StyleLintTooling from './stylelint-tooling';
 import WebpackTooling from './webpack-tooling';
@@ -10,6 +11,9 @@ import TypeScriptTooling from './typescript-tooling';
 import A11yTooling from './a11y-tooling';
 import BundleAnalysis from './bundle-analysis';
 import PrettierTooling from './prettier-tooling';
+import PerfTooling from './perf-tooling';
+import MiscTooling from './misc-tooling';
+import MockTooling from './mocking-libs';
 
 export default [
   {
@@ -40,6 +44,7 @@ export default [
     ...Testing,
     ...BuildTooling,
     ...BabelTooling,
+    ...CodeCoverage,
     ...ESLintTooling,
     ...StyleLintTooling,
     ...WebpackTooling,
@@ -49,4 +54,7 @@ export default [
     ...A11yTooling,
     ...BundleAnalysis,
     ...PrettierTooling,
+    ...PerfTooling,
+    ...MiscTooling,
+    ...MockTooling,
 ];

@@ -4,6 +4,22 @@ export default [
 	category: 'Webpack'
     },
     {
+	name: 'html-loader',
+	category: 'Webpack'
+    },
+    {
+	name: 'html-webpack-plugin',
+	category: 'Webpack'
+    },
+    {
+	name: 'image-webpack-loader',
+	category: 'Webpack'
+    },
+    {
+	name: 'imports-loader',
+	category: 'Webpack'
+    },
+    {
 	name: 'sass-loader',
 	category: 'Webpack'
     },
@@ -81,6 +97,42 @@ export default [
     },
     {
 	name: '@svgr/webpack',
+	category: 'Webpack'
+    },
+    {
+	name: 'circular-dependency-plugin',
+	category: 'Webpack'
+    },
+    {
+	name: 'add-asset-html-webpack-plugin',
+	category: 'Webpack'
+    },
+    {
+	name: 'null-loader',
+	category: 'Webpack'
+    },
+    {
+	name: 'offline-plugin',
+	category: 'Webpack'
+    },
+    {
+	name: 'svg-url-loader',
+	category: 'Webpack'
+    },
+    {
+	name: 'terser-webpack-plugin',
+	category: 'Webpack'
+    },
+    {
+	name: 'webpack-dev-middleware',
+	category: 'Webpack'
+    },
+    {
+	name: 'webpack-hot-middleware',
+	category: 'Webpack'
+    },
+    {
+	name: 'webpack-pwa-manifest',
 	category: 'Webpack'
     },
 ]

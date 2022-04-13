@@ -11,4 +11,8 @@ export default [
 	name: 'eslint-plugin-prettier',
 	category: 'Prettier'
     },
+    {
+	name: 'pretty-quick',
+	category: 'Prettier'
+    },
 ]

@@ -32,6 +32,10 @@ export default [
 	category: 'ESLint'
     },
     {
+	name: 'eslint-config-airbnb-base',
+	category: 'ESLint'
+    },
+    {
 	name: 'eslint-config-react',
 	category: 'ESLint'
     },
@@ -42,6 +46,14 @@ export default [
     
     {
 	name: 'eslint-plugin-react-hooks',
+	category: 'ESLint'
+    },
+    {
+	name: 'eslint-import-resolver-webpack',
+	category: 'ESLint'
+    },
+    {
+	name: 'eslint-plugin-redux-saga',
 	category: 'ESLint'
     },
 ]
