@@ -14,8 +14,21 @@
 
   const getPackagesForCategory = (category) => {
    return data
-     .filter(p => p.category === category && dependencies.includes(p.name))
+     .filter(p => p.category === category && Object.keys(dependencies).includes(p.name))
   } 
+
+ async function getVersionDate(name, version) {
+   const response = await fetch(`https://skimdb.npmjs.com/registry/${name}/`, {
+      headers: {
+	'Content-Type': 'application/json;charset=UTF-8',
+	'Access-Control-Allow-Origin': '*' 
+      },
+   })
+   const data = await response.json();
+   console.log(data.time);
+   return data.time;
+
+ }
 
 
 </script>
@@ -26,7 +39,18 @@
       <ul class="list-disc">
 	{#each getPackagesForCategory(name) as p}
 	  <li class="flex">
-	    <a class="hover:text-black" href="https://npmjs.com/package/{p.name}" target="_blank">{p.name}</a>
+	    <a class="hover:text-black" href="https://npmjs.com/package/{p.name}" target="_blank">
+	      {p.name} {dependencies[p.name]}
+	      <!-- 
+	      {#await getVersionDate(p.name, dependencies[p.name])}
+		<span>Fetching version date...</span>
+	      {:then response}
+		<span>{response}</span>
+		{:catch error}
+		<span>{error}</span>
+		{/await}
+		-->
+	    </a>
 	    <Popover>
 	    <span slot="trigger" title="Alternatives"><img src={alternative} alt="Alternatives" width="24" /></span>
 	    <div slot="content">

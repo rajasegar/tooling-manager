@@ -1,34 +1,12 @@
 <script>
   export let packages;
 
- import { difference, intersection, uniq } from 'ramda';
  import data from '../data/prod';
  import MissingPackage from './MissingPackage.svelte'; 
  import FoundPackage from './FoundPackage.svelte';
- import { getCategories, getCategoryFor } from './utils';
+ import { getCategoryFor, getFoundAndMissing } from './utils';
 
- let found = '', missing = '';
- 
-
-const stdPackages = data.map(d => d.name);
-
-     // Find the difference for missing libs
-     const _missing = difference(stdPackages, packages);
-
-     // find the intersection for installed / found libs
-     const _found = intersection(stdPackages, packages);
-
-
-     const foundCategories = uniq(getCategories(_found, data));
-     const missingCategories = uniq(getCategories(_missing, data));
-
-     // remove the found category items from missing
-     // only one category lib is sufficient
-     const finalMissing = missingCategories.filter(c => !foundCategories.includes(c));
-
-     found = foundCategories.sort();
-     missing = finalMissing.sort();
-
+ let [found, missing] = getFoundAndMissing(packages, data);
 
 </script>
 <div>
@@ -58,9 +36,9 @@ const stdPackages = data.map(d => d.name);
     </table>
   </div>
   <div class="bg-indigo-100 p-4">
-    <h3 class="text-indigo-700 font-bold mb-2">Dependencies ({packages.length})</h3>
+    <h3 class="text-indigo-700 font-bold mb-2">Dependencies ({Object.keys(packages).length})</h3>
     <ul>
-    {#each packages as p}
+    {#each Object.keys(packages) as p}
       <li class="p-1">
 	<a class="text-indigo-600 hover:text-black" href="https://npmjs.com/package/{p}" target="_blank">{p}</a>
 	{#if getCategoryFor(p, data) === 'unknown'}
