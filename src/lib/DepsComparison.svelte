@@ -23,11 +23,16 @@
       <tr>
 	<td class="border-4 border-separate border-gray-100 bg-blue-500 text-white p-2">{category}</td>
 	{#each packages as pack}
-	<td class="border-4 border-separate border-gray-100 bg-blue-600 text-white p-2">
+	  {#if getPackagesForCategory(category,data,pack).length > 0}
+	<td class="border-4 border-separate border-gray-100 bg-green-600 text-white p-2">
 	  {#each getPackagesForCategory(category, data, pack) as p}
 	    <li class="list-none"><a href="https://npmjs.com/package/{p}" target="_blank">{p}</a></li>
 	    {/each}
 	</td>
+	{:else}
+	<td class="border-4 border-separate border-gray-100 bg-red-600 text-white p-2">
+	</td>
+	{/if}
 	{/each}
 	      </tr>
       {/each}
