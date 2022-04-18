@@ -1,145 +1,72 @@
 <script>
 
- import { Octokit } from "https://cdn.skypack.dev/octokit";
- 
- import Dependencies from './lib/Dependencies.svelte';
- import DevDependencies from './lib/DevDependencies.svelte';
- import PopularProjects from "./lib/PopularProjects.svelte";
- import Tabs from './lib/Tabs.svelte';
+ import { Router, link, Route } from "svelte-routing";
+ import Home from "./routes/Home.svelte";
+ import EmberPage from "./routes/Ember.svelte";
+ import SveltePage from "./routes/Svelte.svelte";
+ import ComparePage from './routes/Compare.svelte';
 
- let  fileinput;
- let repoUrl;
- let repoPath;
- let pkg;
- let isPkgUploaded = false;
- let currDependencies = [];
- let currDevDependencies = [];
- let error  = '';
+ import NavLink from "./lib/NavLink.svelte"; 
 
- // Create a personal access token at https://github.com/settings/tokens/new?scopes=repo
-const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN });
-
- function reset() {
-   isPkgUploaded = false;
-   error = '';
- }
-
- const onFileSelected =(e)=>{
-   pkg = e.target.files[0];
-   let reader = new FileReader();
-   reader.readAsText(pkg);
-   reader.onload = e => {
-
-     const manifest = JSON.parse(e.target.result);
-     /* currDependencies = Object.keys(manifest.dependencies); */
-     currDependencies = manifest.dependencies;
-     currDevDependencies = manifest.devDependencies;
-     isPkgUploaded = true;
-   };
- }
-
- const handleSubmit = (e) => {
-   readRepo(repoUrl);
- }
-
- const handleRepoMessage = (e) => {
-   const url = e.detail.text;
-   readRepo(url);
- }
-
- const readRepo = (url) => {
-   const [owner, repo] = url
-     .replace('https://github.com/','')
-     .replace('git://github.com/','')
-     .replace('.git','')
-   .split('/')
-   octokit.rest.repos.getContent({
-     owner,
-     repo,
-     path: repoPath || 'package.json',
-   }).then(response => {
-     pkg = { name: `${owner}/${repo}` };
-      const manifest = JSON.parse(atob(response.data.content));
-     currDependencies = manifest.dependencies;
-     currDevDependencies = manifest.devDependencies;
-     isPkgUploaded = true;
-     repoUrl = '';
-   }).catch(err => {
-     error = err;
-   });
- }
+ export let url = "";
  
 </script>
 
-<div class="w-full min-h-screen bg-gray-100 mx-auto p-2">
-  
-  {#if !isPkgUploaded}
-    <div class="max-w-7xl mx-auto flex flex-row items-center justify-evenly content-center">
-      <div class="">
-	<h1 class="text-4xl text-gray-500 p-2 text-center">Scan your package.json</h1>
-	<button type="button" class="text-white text-3xl py-2 px-6 m-4 rounded bg-gradient-to-b from-gray-700 to-gray-800 hover:from-pink-500 hover:to-yellow-500" on:click={()=>{fileinput.click();}}>
-	  Choose File
-	</button>
-	<input style="display:none" type="file" accept=".json" on:change={(e)=>onFileSelected(e)} bind:this={fileinput} >
-      </div>
-      <div>
-	<h2 class="text-3xl text-gray-400">OR</h2>
-      </div>
-      <div class="ml-4">
-	<h1 class="text-4xl text-gray-500 p-2 text-center">Read from a Github repository</h1>
-	<form on:submit|preventDefault={handleSubmit}>
-	  <label class="block text-gray-500 m-2" for="txtUrl"><span class="text-red-500">*</span> Enter repository url here...</label>
-	  <input class="block w-full p-2 border border-gray-300 rounded m-2"
-		 type="text"
-		 id="txtUrl"
-		 placeholder="https://github.com/rajasegar/tooling-manager"
-		 bind:value={repoUrl}
-		 required
-	  />
-	  <label class="block text-gray-500 m-2" for="txtPath">Filepath: (optional, default: 'package.json')</label>
-	  <input class="block w-full p-2 border border-gray-300 rounded m-2"
-		 type="text"
-		 id="txtPath"
-		 placeholder="package.json"
-		 bind:value={repoPath}
-	  />
-	  
+<Router url="{url}">
 
-	  <button type="submit" class=" text-white text-3xl py-2 px-6 m-4 rounded bg-gradient-to-b from-gray-700 to-gray-800 hover:from-pink-500 hover:to-yellow-500">
-	    Read Repo
-	  </button>
-	</form>
-	
-      </div>
-    </div>
-    <div class="max-w-7xl mx-auto">
-      {#if error}
-	<p class="text-center bg-red-200 text-red-700 p-2 rounded border border-red-700 font-bold">Github Error: {error}</p>
-      {/if}
-      
+  <nav class="bg-gray-800">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      <div class="relative flex items-center justify-between h-16">
+	<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <!-- Mobile menu button-->
+          <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+	</div>
+	<div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+          <div class="flex-shrink-0 flex items-center">
+            <img class="block lg:hidden h-8 w-auto" src="/images/tooling-manager.svg" alt="Workflow">
+            <img class="hidden lg:block h-8 w-auto" src="/images/tooling-manager.svg" alt="Workflow">
+          </div>
+          <div class="hidden sm:block sm:ml-6">
+            <div class="flex space-x-4">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+	      <NavLink to="/">React</NavLink>
+	      <NavLink to="ember">Ember</NavLink>
+	      <NavLink to="svelte">Svelte</NavLink>
+	      <NavLink to="compare">Compare</NavLink>
+
+            </div>
+          </div>
+	</div>
+	      </div>
     </div>
 
-    <div class="max-w-7xl mx-auto">
-      <PopularProjects on:message={handleRepoMessage} />
-    </div>
-  {:else}
-    <div class="max-w-7xl mx-auto flex items-center">
-      <h1 class="text-4xl text-indigo-700 p-2 text-center">{pkg.name}</h1>
-      <div>
-	<button on:click={() => {reset()}} class="bg-red-500 px-2 py-1 text-sm text-white hover:bg-red-600 rounded shadow">Clear &times;</button>
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="sm:hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+	<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+	<a use:link href="/" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">React</a>
+
+	<a use:link href="/ember" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Ember</a>
+
+	<a use:link href="/svelte" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Svelte</a>
+
       </div>
-
     </div>
-    <Tabs>
+  </nav>
 
-      <Dependencies packages={currDependencies} slot="tab1" />
-      <DevDependencies packages={currDevDependencies} slot="tab2" />
-    </Tabs>
-  {/if}
-
-</div>
-<style>
-</style>
-
-
+  <div>
+    <Route path="ember" component="{EmberPage}" />
+    <Route path="svelte" component="{SveltePage}" />
+    <Route path="compare" component="{ComparePage}" />
+    <Route path="/"><Home /></Route>
+  </div>
+</Router>
 

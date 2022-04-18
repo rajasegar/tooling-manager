@@ -10,6 +10,13 @@ export function getCategoryFor(p, data) {
 	return item ? item.category : 'unknown';
 };
 
+export function getPackagesForCategory(category, data, packages = []) {
+    return data
+	.filter(d => d.category === category && Object.keys(packages).includes(d.name))
+	.map(d => d.name)
+	.sort();
+}
+
 export function getFoundAndMissing(packages, data) {
 	const packageNames = Object.keys(packages);
 	const stdPackages = data.map(d => d.name);
