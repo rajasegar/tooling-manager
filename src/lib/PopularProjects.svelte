@@ -1,9 +1,10 @@
 <script>
- import repos from '../data/repos/react';
  
  import { createEventDispatcher } from 'svelte';
 
  const dispatch = createEventDispatcher();
+
+ export let repos = [];
 
  function checkRepo(url) {
    console.log(url)
@@ -15,7 +16,7 @@
 </script>
 
 <div>
-  <h2 class="text-5xl text-gray-700 mb-2">React projects</h2>
+  <h2 class="text-5xl text-gray-700 mb-2"><slot name="heading"></slot></h2>
   <hr class="mb-4 bg-gray-300 p-0.5" />
 <div class="flex flex-row">
   {#each repos as repo}

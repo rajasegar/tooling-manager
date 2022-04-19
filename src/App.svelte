@@ -7,6 +7,7 @@
  import ComparePage from './routes/Compare.svelte';
 
  import NavLink from "./lib/NavLink.svelte"; 
+import ScaffoldPage from "./routes/Scaffold.svelte";
 
  export let url = "";
  
@@ -38,9 +39,10 @@
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 	      <NavLink to="/">React</NavLink>
-	      <NavLink to="ember">Ember</NavLink>
+	      <!-- <NavLink to="ember">Ember</NavLink> -->
 	      <NavLink to="svelte">Svelte</NavLink>
 	      <NavLink to="compare">Compare</NavLink>
+	      <NavLink to="scaffold">Scaffold</NavLink>
 
             </div>
           </div>
@@ -66,6 +68,7 @@
     <Route path="ember" component="{EmberPage}" />
     <Route path="svelte" component="{SveltePage}" />
     <Route path="compare" component="{ComparePage}" />
+    <Route path="scaffold" component="{ScaffoldPage}" />
     <Route path="/"><Home /></Route>
   </div>
 </Router>

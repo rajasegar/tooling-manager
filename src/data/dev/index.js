@@ -14,6 +14,7 @@ import PrettierTooling from './prettier-tooling';
 import PerfTooling from './perf-tooling';
 import MiscTooling from './misc-tooling';
 import MockTooling from './mocking-libs';
+import RollupTooling from './rollup-tooling';
 
 export default [
   {
@@ -57,4 +58,5 @@ export default [
     ...PerfTooling,
     ...MiscTooling,
     ...MockTooling,
+    ...RollupTooling,
 ];

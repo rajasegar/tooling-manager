@@ -71,4 +71,16 @@ export default [
 	name: '@types/testing-library__jest-dom',
 	category: 'TypeScript'
     },
-]
+    {
+	name: 'tslib',
+	category: 'TypeScript'
+    },
+    {
+	name: '@typescript-eslint/eslint-plugin',
+	category: 'TypeScript'
+    },
+    {
+	name: '@typescript-eslint/parser',
+	category: 'TypeScript'
+    },
+];

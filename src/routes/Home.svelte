@@ -1,10 +1,17 @@
 <script>
 import { Octokit } from "https://cdn.skypack.dev/octokit";
  
+ import repos from '../data/repos/react';
  import Dependencies from '../lib/Dependencies.svelte';
  import DevDependencies from '../lib/DevDependencies.svelte';
  import PopularProjects from "../lib/PopularProjects.svelte";
  import Tabs from '../lib/Tabs.svelte';
+
+
+ import devTooling from '../data/dev';
+ import reactDevTooling from '../data/dev/frameworks/react';
+
+ const devData = [...devTooling, ...reactDevTooling];
 
  let fileinput;
  let repoUrl;
@@ -115,7 +122,9 @@ const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN });
     </div>
 
     <div class="max-w-7xl mx-auto">
-      <PopularProjects on:message={handleRepoMessage} />
+      <PopularProjects repos={repos} on:message={handleRepoMessage} >
+	<span slot="heading">React Projects</span>
+      </PopularProjects>
     </div>
   {:else}
     <div class="max-w-7xl mx-auto flex items-center">
@@ -127,7 +136,7 @@ const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN });
     </div>
     <Tabs labels={["Dependencies","DevDependencies"]}>
       <Dependencies packages={currDependencies} slot="tab1" />
-      <DevDependencies packages={currDevDependencies} slot="tab2" />
+      <DevDependencies data={devData} packages={currDevDependencies} slot="tab2" />
     </Tabs>
   {/if}
 

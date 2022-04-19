@@ -1,12 +1,11 @@
 <script>
-  export let packages;
+ export let packages;
+ export let data;
 
- import data from '../data/dev';
  import MissingPackage from './MissingPackage.svelte'; 
  import FoundPackage from './FoundPackage.svelte';
  import { getFoundAndMissing, getCategoryFor } from './utils';
 
- 
  let [found, missing] = getFoundAndMissing(packages, data);
 
 </script>
