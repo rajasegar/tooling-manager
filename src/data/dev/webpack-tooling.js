@@ -135,4 +135,8 @@ export default [
 	name: 'webpack-pwa-manifest',
 	category: 'Webpack'
     },
+    {
+	name: 'raw-loader',
+	category: 'Webpack'
+    },
 ]

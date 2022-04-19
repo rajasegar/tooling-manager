@@ -1,7 +1,8 @@
 <script>
   export let packages;
 
- import data from '../data/prod';
+ export let data;
+
  import MissingPackage from './MissingPackage.svelte'; 
  import FoundPackage from './FoundPackage.svelte';
  import { getCategoryFor, getFoundAndMissing } from './utils';

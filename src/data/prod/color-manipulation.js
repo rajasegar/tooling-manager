@@ -1,9 +1,5 @@
 export default [
     {
-    "name": "react-color",
-	    "category": "Colour Manipulation & Color Pickers"
-  },
-    {
     "name": "spectrum-colorpicker",
 	    "category": "Colour Manipulation & Color Pickers"
   },

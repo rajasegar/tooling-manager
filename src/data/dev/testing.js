@@ -47,4 +47,8 @@ export default [
     "name": "react-testing-library",
 	    "category": "Testing"
   },  
+  {
+    "name": "chai",
+	    "category": "Testing"
+  },  
 ];

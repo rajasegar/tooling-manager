@@ -10,7 +10,11 @@ import { Octokit } from "https://cdn.skypack.dev/octokit";
  import devTooling from '../data/dev';
  import svelteDevTooling from '../data/dev/frameworks/svelte';
 
+ import prodTooling from '../data/prod';
+ import svelteProdTooling from '../data/prod/frameworks/svelte';
+
  const devData = [...devTooling, ...svelteDevTooling];
+ const prodData = [...prodTooling, ...svelteProdTooling];
 
  let fileinput;
  let repoUrl;
@@ -134,7 +138,7 @@ const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN });
 
     </div>
     <Tabs labels={["Dependencies","DevDependencies"]}>
-      <Dependencies packages={currDependencies} slot="tab1" />
+      <Dependencies data={prodData} packages={currDependencies} slot="tab1" />
       <DevDependencies data={devData} packages={currDevDependencies} slot="tab2" />
     </Tabs>
   {/if}

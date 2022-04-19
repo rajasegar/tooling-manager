@@ -1,9 +1,7 @@
 import StateManagement from './state-management';
 import Charting from './charting';
-import CssInJs from './css-in-js';
 import Svg from './svg';
 import DateTimeManipulation from './date-time-manipulation';
-import Accordions from './accordion-collapse';
 import Animations from './animations';
 import ErrorMonitoring from './error-monitoring';
 import Dropdowns from './dropdown';
@@ -12,7 +10,6 @@ import Utilities from './utilities';
 import Immutability from './immutability';
 import LocalStorage from './local-storage';
 import TableGridComponents from './table-grid-components';
-import ReactOfficial from './react-official';
 import RichTextEditors from './rich-text-editors';
 import virtualizedLists from './virtualized-lists';
 import routing from './routing';
@@ -31,6 +28,7 @@ import SkeletonLoading from './skeleton-loading';
 import IFrameHandling from './iframes';
 import ModalDialogs from './modal-dialogs';
 import UrlUtilities from './url-utilities';
+import GraphQL from './graphql';
 
 export default [
   {
@@ -49,12 +47,14 @@ export default [
     "name": "cssjanus",
 	    "category": "RTL"
   },
+  {
+    "name": "prismjs",
+	    "category": "Syntax Highlighting"
+  },
     ...StateManagement,
     ...Charting,
-    ...CssInJs,
     ...Svg,
     ...DateTimeManipulation,
-    ...Accordions,
     ...Animations,
     ...ErrorMonitoring,
     ...Dropdowns,
@@ -63,7 +63,6 @@ export default [
     ...Immutability,
     ...LocalStorage,
     ...TableGridComponents,
-    ...ReactOfficial,
     ...RichTextEditors,
     ...virtualizedLists,
     ...routing,
@@ -81,6 +80,7 @@ export default [
     ...SkeletonLoading,
     ...IFrameHandling,
     ...ModalDialogs,
-    ...UrlUtilities
+    ...UrlUtilities,
+    ...GraphQL,
     
 ];

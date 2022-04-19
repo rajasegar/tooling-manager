@@ -1,6 +1,5 @@
 <script>
 
-
  import Tabs from '../lib/Tabs.svelte';
  import { uniq } from 'ramda';
  import prodData from '../data/prod';
@@ -15,9 +14,6 @@ import ChooseTooling from "../lib/ChooseTooling.svelte";
  function downloadScaffold() {
    
  }
-
-
-
  
 </script>
 

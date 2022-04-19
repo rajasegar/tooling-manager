@@ -20,10 +20,6 @@ export default [
 	alternatives:['d3', 'c3','plotly.js']
   },
   {
-    "name": "highcharts-react-official",
-	    "category": "Charting"
-  },
-  {
     "name": "@highcharts/map-collection",
 	    "category": "Charting"
   },

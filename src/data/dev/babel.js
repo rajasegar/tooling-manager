@@ -107,5 +107,9 @@ export default [
 	name: 'babel-plugin-transform-react-remove-prop-types',
 	category: 'Babel'
     },
+    {
+	name: 'babel-plugin-relay',
+	category: 'Babel'
+    },
     
 ]
