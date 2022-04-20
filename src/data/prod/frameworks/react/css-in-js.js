@@ -9,7 +9,8 @@ export default [
   },
   {
     "name": "styled-components",
-	    "category": "CSS-in-JS"
+      "category": "CSS-in-JS",
+      "alternatives":['emotion','jss','aphrodite']
   },
   {
     "name": "jss",

@@ -5,7 +5,10 @@ import { Octokit } from "https://cdn.skypack.dev/octokit";
  const dispatch = createEventDispatcher();
  
 const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN });
- import projects from '../data/repos/react';
+ import reactBoilerplates from '../data/repos/react';
+ import svelteBoilerplates from '../data/repos/svelte';
+
+ let projects = [];
 
  let error;
  
@@ -33,11 +36,28 @@ const readRepo = (url) => {
  function handleChange(ev) {
    readRepo(ev.target.value);
  }
+
+ function chooseBoilerplates(ev) {
+
+   if(ev.target.value === 'Svelte') {
+     projects = svelteBoilerplates;
+   } else {
+     projects = reactBoilerplates;
+   }
+   
+ }
  
 </script>
 
 <div>
-  <h3 class="text-2xl text-gray-500 mb-2">Choose a boilerplate:</h3>
+  <h3 class="text-1xl text-gray-500 mb-2">Choose a Framework:</h3>
+<select on:change={chooseBoilerplates} class="p-2 border border-gray-400 rounded mb-4">
+  <option value="">-- Select Framework --</option>
+  <option value="React">React</option>
+  <option value="Svelte">Svelte</option>
+</select>
+
+  <h3 class="text-1xl text-gray-500 mb-2">Choose a boilerplate:</h3>
 <select on:change={handleChange} class="p-2 border border-gray-400 rounded">
   <option value="">-- Select Project --</option>
   {#each projects as p}

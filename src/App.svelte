@@ -42,7 +42,7 @@ import ScaffoldPage from "./routes/Scaffold.svelte";
 	      <!-- <NavLink to="ember">Ember</NavLink> -->
 	      <NavLink to="svelte">Svelte</NavLink>
 	      <NavLink to="compare">Compare</NavLink>
-	      <NavLink to="scaffold">Scaffold</NavLink>
+	      <NavLink to="scaffold">Scaffold (WIP)</NavLink>
 
             </div>
           </div>

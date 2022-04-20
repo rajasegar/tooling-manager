@@ -24,9 +24,4 @@ export default [
       "category": "Date & Time Manipulation",
       "alternatives": ["dayjs"]
   },  
-  {
-    "name": "react-moment",
-      "category": "Date & Time Manipulation",
-      "alternatives": ["dayjs", "date-fns"]
-  },  
 ];

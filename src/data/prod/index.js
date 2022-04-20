@@ -19,7 +19,6 @@ import LazyLoading from './lazy-loading';
 import APIMiddleware from './api-middleware';
 import TooltipPopovers from './tooltips-popovers';
 import DateTimeRangePickers from './date-time-range-pickers';
-import DocumentHeadManagement from './document-head-management';
 import DragnDrop from './drag-n-drop';
 import XSSSanitizers from './xss-sanitizers';
 import ColorManipulation from './color-manipulation';
@@ -72,7 +71,6 @@ export default [
     ...APIMiddleware,
     ...TooltipPopovers,
     ...DateTimeRangePickers,
-    ...DocumentHeadManagement,
     ...DragnDrop,
     ...XSSSanitizers,
     ...ColorManipulation,

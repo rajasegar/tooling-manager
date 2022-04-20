@@ -82,7 +82,7 @@ import SampleProjects from "../lib/SampleProjects.svelte";
     </div>
 
     <div class="flex flex-col items-center">
-      <button class=" text-white text-5xl py-2 px-6 my-8 rounded bg-gradient-to-b from-gray-700 to-gray-800 hover:from-pink-500 hover:to-yellow-500 disabled:bg-red-100 disabled:text-white disabled:cursor-not-allowed" on:click={compareProjects} disabled={!enableCompareBtn}>Compare Projects</button>
+      <button class=" text-white text-5xl py-2 px-6 my-8 rounded bg-gray-800 disabled:bg-gray-400 disabled:text-white disabled:cursor-not-allowed" on:click={compareProjects} disabled={!enableCompareBtn}>Compare Projects</button>
     </div>
       
     <div class="max-w-7xl mx-auto">
