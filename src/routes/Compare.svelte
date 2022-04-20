@@ -8,7 +8,7 @@
  import { uniq } from 'ramda';
  import prodData from '../data/prod';
  import devData from '../data/dev';
-import SampleProjects from "../lib/SampleProjects.svelte";
+ import SampleProjects from "../lib/SampleProjects.svelte";
 
  let showComparison = false;
  let enableCompareBtn = false;
@@ -56,6 +56,11 @@ import SampleProjects from "../lib/SampleProjects.svelte";
  }
  
 </script>
+
+<svelte:head>
+  <title>Tooling Manager - Compare</title>
+</svelte:head>
+
 
 
 <div class="w-full min-h-screen bg-gray-100 mx-auto p-2">
