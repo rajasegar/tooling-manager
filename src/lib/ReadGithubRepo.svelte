@@ -2,13 +2,13 @@
  import { createEventDispatcher } from "svelte";
  const dispatch = createEventDispatcher();
 
-import { Octokit } from "https://cdn.skypack.dev/octokit";
+ /* import { Octokit } from "https://cdn.skypack.dev/octokit"; */
  let repoUrl;
  let repoPath;
  let error;
  let isRepoProcessed = false;
  
-const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN });
+ /* const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN }); */
 
  const handleSubmit = (e) => {
    readRepo(repoUrl);
@@ -20,6 +20,7 @@ const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN });
      .replace('git://github.com/','')
      .replace('.git','')
    .split('/')
+   /*
    octokit.rest.repos.getContent({
      owner,
      repo,
@@ -33,6 +34,7 @@ const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN });
    }).catch(err => {
      error = err;
    });
+   */
  }
 
 </script>

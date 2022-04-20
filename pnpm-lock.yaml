@@ -6,6 +6,7 @@ specifiers:
   '@playwright/test': ^1.21.0
   '@popperjs/core': ^2.11.5
   '@sveltejs/adapter-auto': next
+  '@sveltejs/adapter-netlify': ^1.0.0-next.51
   '@sveltejs/kit': next
   '@types/cookie': ^0.4.1
   '@typescript-eslint/eslint-plugin': ^5.10.1
@@ -38,6 +39,7 @@ dependencies:
 devDependencies:
   '@playwright/test': 1.21.1
   '@sveltejs/adapter-auto': 1.0.0-next.34
+  '@sveltejs/adapter-netlify': 1.0.0-next.51
   '@sveltejs/kit': 1.0.0-next.316_svelte@3.46.6
   '@types/cookie': 0.4.1
   '@typescript-eslint/eslint-plugin': 5.20.0_4a38537b28d61fb150842b8115287657

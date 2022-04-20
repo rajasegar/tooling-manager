@@ -56,7 +56,7 @@
    readRepo(url);
  }
 
- const readRepo = (url:string) => {
+ const readRepo = (url) => {
    const [owner, repo] = url
      .replace('https://github.com/','')
      .replace('git://github.com/','')

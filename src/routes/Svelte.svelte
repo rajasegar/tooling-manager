@@ -1,5 +1,4 @@
 <script>
- import { Octokit } from "https://cdn.skypack.dev/octokit";
  
  import Dependencies from '../lib/Dependencies.svelte';
  import DevDependencies from '../lib/DevDependencies.svelte';
@@ -24,8 +23,6 @@
  let currDependencies = [];
  let currDevDependencies = [];
  let error  = '';
-
- const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN });
 
  function reset() {
    isPkgUploaded = false;
@@ -60,20 +57,29 @@
      .replace('git://github.com/','')
      .replace('.git','')
      .split('/')
-   octokit.rest.repos.getContent({
-     owner,
-     repo,
-     path: repoPath || 'package.json',
-   }).then(response => {
-     pkg = { name: `${owner}/${repo}` };
-     const manifest = JSON.parse(atob(response.data.content));
-     currDependencies = manifest.dependencies;
-     currDevDependencies = manifest.devDependencies;
-     isPkgUploaded = true;
-     repoUrl = '';
-   }).catch(err => {
-     error = err;
-   });
+   
+   const githubUrl = new URL('github', location.origin);
+   const queryparams = { owner, repo , path: repoPath || 'package.json'};
+   for (let k in queryparams) { githubUrl.searchParams.append(k, queryparams[k]); }
+   
+   fetch(githubUrl, {
+     headers: {
+       'Content-Type': 'application/json',
+       'Accept': 'application/json'
+     },
+   })
+     .then(response => response.json())
+     .then(manifest => {
+       pkg = { name: `${owner}/${repo}` };
+       currDependencies = manifest.dependencies;
+       currDevDependencies = manifest.devDependencies;
+       isPkgUploaded = true;
+       repoUrl = '';
+       
+     }).catch(err => {
+       error = err;
+     })
+
  }
 </script>
 <svelte:head>
