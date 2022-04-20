@@ -1,5 +1,5 @@
 <script>
-import { Octokit } from "https://cdn.skypack.dev/octokit";
+ /* import { Octokit } from "https://cdn.skypack.dev/octokit"; */
  
  import repos from '../data/repos/react';
  import Dependencies from '../lib/Dependencies.svelte';
@@ -26,7 +26,7 @@ import { Octokit } from "https://cdn.skypack.dev/octokit";
  let currDevDependencies = [];
  let error  = '';
 
-const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN });
+ /* const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN }); */
 
  function reset() {
    isPkgUploaded = false;
@@ -61,20 +61,20 @@ const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN });
      .replace('git://github.com/','')
      .replace('.git','')
    .split('/')
-   octokit.rest.repos.getContent({
-     owner,
-     repo,
-     path: repoPath || 'package.json',
-   }).then(response => {
-     pkg = { name: `${owner}/${repo}` };
-      const manifest = JSON.parse(atob(response.data.content));
-     currDependencies = manifest.dependencies;
-     currDevDependencies = manifest.devDependencies;
-     isPkgUploaded = true;
-     repoUrl = '';
-   }).catch(err => {
-     error = err;
-   });
+   /* octokit.rest.repos.getContent({
+    *   owner,
+    *   repo,
+    *   path: repoPath || 'package.json',
+    * }).then(response => {
+    *   pkg = { name: `${owner}/${repo}` };
+    *    const manifest = JSON.parse(atob(response.data.content));
+    *   currDependencies = manifest.dependencies;
+    *   currDevDependencies = manifest.devDependencies;
+    *   isPkgUploaded = true;
+    *   repoUrl = '';
+    * }).catch(err => {
+    *   error = err;
+    * }); */
  }
 </script>
 <div class="w-full min-h-screen bg-gray-100 mx-auto p-2">

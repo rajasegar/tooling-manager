@@ -1,31 +1,33 @@
-<script>
- import { Octokit } from "https://cdn.skypack.dev/octokit";
+<script context="module" lang="ts">
+ export const prerender = true;
+</script>
+
+<script lang="ts">
  
+ import repos from '../data/repos/react';
  import Dependencies from '../lib/Dependencies.svelte';
  import DevDependencies from '../lib/DevDependencies.svelte';
  import PopularProjects from "../lib/PopularProjects.svelte";
  import Tabs from '../lib/Tabs.svelte';
- import repos from '../data/repos/svelte';
 
  import devTooling from '../data/dev';
- import svelteDevTooling from '../data/dev/frameworks/svelte';
+ import reactDevTooling from '../data/dev/frameworks/react';
 
  import prodTooling from '../data/prod';
- import svelteProdTooling from '../data/prod/frameworks/svelte';
+ import reactProdTooling from '../data/prod/frameworks/react';
 
- const devData = [...devTooling, ...svelteDevTooling];
- const prodData = [...prodTooling, ...svelteProdTooling];
+ const devData = [...devTooling, ...reactDevTooling];
+ const prodData = [...prodTooling, ...reactProdTooling];
 
  let fileinput;
- let repoUrl;
- let repoPath;
+ let repoUrl:string;
+ let repoPath:string;
  let pkg;
  let isPkgUploaded = false;
  let currDependencies = [];
  let currDevDependencies = [];
  let error  = '';
 
- const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN });
 
  function reset() {
    isPkgUploaded = false;
@@ -54,30 +56,41 @@
    readRepo(url);
  }
 
- const readRepo = (url) => {
+ const readRepo = (url:string) => {
    const [owner, repo] = url
      .replace('https://github.com/','')
      .replace('git://github.com/','')
      .replace('.git','')
-     .split('/')
-   octokit.rest.repos.getContent({
-     owner,
-     repo,
-     path: repoPath || 'package.json',
-   }).then(response => {
+   .split('/')
+   
+   const githubUrl = new URL('github', location.origin);
+   const queryparams = { owner, repo , path: repoPath || 'package.json'};
+   for (let k in queryparams) { githubUrl.searchParams.append(k, queryparams[k]); }
+   
+   fetch(githubUrl, {
+     headers: {
+       'Content-Type': 'application/json',
+       'Accept': 'application/json'
+     },
+   })
+   .then(response => response.json())
+   .then(manifest => {
      pkg = { name: `${owner}/${repo}` };
-     const manifest = JSON.parse(atob(response.data.content));
      currDependencies = manifest.dependencies;
      currDevDependencies = manifest.devDependencies;
      isPkgUploaded = true;
      repoUrl = '';
+     
    }).catch(err => {
      error = err;
-   });
+   })
+
  }
+
 </script>
+
 <svelte:head>
-  <title>Tooling Manager - Svelte</title>
+  <title>Tooling Manager - React</title>
 </svelte:head>
 
 <div class="w-full min-h-screen bg-gray-100 mx-auto p-2">
@@ -129,8 +142,8 @@
     </div>
 
     <div class="max-w-7xl mx-auto">
-      <PopularProjects repos={repos} on:message={handleRepoMessage}>
-	<span slot="heading">Svelte Projects</span>
+      <PopularProjects repos={repos} on:message={handleRepoMessage} >
+	<span slot="heading">React Projects</span>
       </PopularProjects>
     </div>
   {:else}
@@ -148,6 +161,8 @@
   {/if}
 
 </div>
+
+
 
 
 

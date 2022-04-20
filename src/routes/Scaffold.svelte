@@ -5,6 +5,7 @@
  import prodData from '../data/prod';
  import devData from '../data/dev';
 import ChooseTooling from "../lib/ChooseTooling.svelte";
+import svelte from '../data/repos/svelte';
 
  let error  = '';
 
@@ -16,6 +17,10 @@ import ChooseTooling from "../lib/ChooseTooling.svelte";
  }
  
 </script>
+
+<svelte:head>
+  <title>Tooling Manager - Scaffold</title>
+</svelte:head>
 
 
 <div class="w-full min-h-screen bg-gray-100 mx-auto p-2">
