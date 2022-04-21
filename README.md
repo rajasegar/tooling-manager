@@ -1,6 +1,9 @@
-# create-svelte
+# Tooling Manager
+[![Netlify Status](https://api.netlify.com/api/v1/badges/79565700-8b31-4f38-9d94-df032eddf2ae/deploy-status)](https://app.netlify.com/sites/tooling-manager/deploys)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Compare your JavaScript Tech Stack against industry standard boilerplates.
+
+Built with SvelteKit, everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
 ## Creating a project
 
