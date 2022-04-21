@@ -12,21 +12,33 @@
  export let dependencies;
  export let data;
 
+ let error;
+
   const getPackagesForCategory = (category) => {
    return data
      .filter(p => p.category === category && Object.keys(dependencies).includes(p.name))
   } 
 
  async function getVersionDate(name, version) {
-   const response = await fetch(`https://skimdb.npmjs.com/registry/${name}/`, {
-      headers: {
-	'Content-Type': 'application/json;charset=UTF-8',
-	'Access-Control-Allow-Origin': '*' 
-      },
+
+    const url = new URL('publish-date', location.origin);
+   const queryparams = { name, version};
+   for (let k in queryparams) { url.searchParams.append(k, queryparams[k]); }
+   
+   return fetch(url, {
+     headers: {
+       'Content-Type': 'application/json',
+       'Accept': 'application/json'
+     },
    })
-   const data = await response.json();
-   console.log(data.time);
-   return data.time;
+   .then(response => response.json())
+   .then(data => {
+     return data.time;
+
+   }).catch(err => {
+     error = err;
+   })
+
 
  }
 
@@ -41,16 +53,16 @@
 	  <li class="flex">
 	    <a class="hover:text-black" href="https://npmjs.com/package/{p.name}" target="_blank">
 	      {p.name} {dependencies[p.name]}
-	      <!-- 
+	    </a>
+	    <span class="mx-4 text-gray-700">
 	      {#await getVersionDate(p.name, dependencies[p.name])}
-		<span>Fetching version date...</span>
+		<span class="text-sm">Fetching publish date...</span>
 	      {:then response}
 		<span>{response}</span>
 		{:catch error}
 		<span>{error}</span>
 		{/await}
-		-->
-	    </a>
+	    </span>
 	    <Popover>
 	    <span slot="trigger" title="Alternatives"><img src={alternative} alt="Alternatives" width="24" /></span>
 	    <div slot="content">

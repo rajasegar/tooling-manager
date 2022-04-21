@@ -41,6 +41,7 @@
     "@lukeed/uuid": "^2.0.0",
     "@popperjs/core": "^2.11.5",
     "cookie": "^0.4.1",
+    "dayjs": "^1.11.1",
     "octokit": "^1.7.1",
     "ramda": "^0.28.0"
   }

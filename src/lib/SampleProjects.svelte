@@ -1,10 +1,8 @@
 <script>
  import { createEventDispatcher } from 'svelte';
 
- /* import { Octokit } from "https://cdn.skypack.dev/octokit"; */
  const dispatch = createEventDispatcher();
  
- /* const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN }); */
  import reactBoilerplates from '../data/repos/react';
  import svelteBoilerplates from '../data/repos/svelte';
 
@@ -18,21 +16,29 @@ const readRepo = (url) => {
      .replace('git://github.com/','')
      .replace('.git','')
    .split('/')
-   /*
-   octokit.rest.repos.getContent({
-     owner,
-     repo,
-     path: 'package.json',
-   }).then(response => {
-      const manifest = JSON.parse(atob(response.data.content));
-     dispatch('message',{
-       text: manifest,
-       name: repo,
-     })
+
+   const githubUrl = new URL('github', location.origin);
+   const queryparams = { owner, repo , path: 'package.json'};
+   for (let k in queryparams) { githubUrl.searchParams.append(k, queryparams[k]); }
+   
+   fetch(githubUrl, {
+     headers: {
+       'Content-Type': 'application/json',
+       'Accept': 'application/json'
+     },
+   })
+   .then(response => response.json())
+   .then(manifest => {
+          dispatch('message',{
+	    text: manifest,
+	    name: repo,
+	  })
+
    }).catch(err => {
      error = err;
-   });
-   */
+   })
+
+
  }
 
  function handleChange(ev) {

@@ -2,13 +2,11 @@
  import { createEventDispatcher } from "svelte";
  const dispatch = createEventDispatcher();
 
- /* import { Octokit } from "https://cdn.skypack.dev/octokit"; */
  let repoUrl;
  let repoPath;
  let error;
  let isRepoProcessed = false;
  
- /* const octokit = new Octokit({ auth: import.meta.env.VITE_GITHUB_TOKEN }); */
 
  const handleSubmit = (e) => {
    readRepo(repoUrl);
@@ -20,21 +18,27 @@
      .replace('git://github.com/','')
      .replace('.git','')
    .split('/')
-   /*
-   octokit.rest.repos.getContent({
-     owner,
-     repo,
-     path: repoPath || 'package.json',
-   }).then(response => {
-      const manifest = JSON.parse(atob(response.data.content));
+
+   const githubUrl = new URL('github', location.origin);
+   const queryparams = { owner, repo , path: repoPath || 'package.json'};
+   for (let k in queryparams) { githubUrl.searchParams.append(k, queryparams[k]); }
+   
+   fetch(githubUrl, {
+     headers: {
+       'Content-Type': 'application/json',
+       'Accept': 'application/json'
+     },
+   })
+   .then(response => response.json())
+   .then(manifest => {
      dispatch('message',{
        text: manifest
      })
      isRepoProcessed = true;
    }).catch(err => {
      error = err;
-   });
-   */
+   })
+
  }
 
 </script>
