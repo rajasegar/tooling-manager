@@ -59,7 +59,7 @@
     </button>
 
     {#if isCurrentActive}
-      <div class="px-2 bg-white border border-green-500"
+      <div class="px-1 bg-white border border-green-500"
            transition:slide>
         <slot/>
       </div>

@@ -47,10 +47,10 @@
 
 <Accordion bind:active>
   <AccordionItem id="0" title="{name} ({getPackagesForCategory(name).length})" >
-    <div class="text-green-800 p-3 m-2">
+    <div class="text-green-800 p-2 m-2">
       <ul class="list-disc">
 	{#each getPackagesForCategory(name) as p}
-	  <li class="flex">
+	  <li class="flex border border-rounded border-green-300 m-2">
 	    <a class="hover:text-black" href="https://npmjs.com/package/{p.name}" target="_blank">
 	      {p.name} {dependencies[p.name]}
 	    </a>

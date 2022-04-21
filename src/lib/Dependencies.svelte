@@ -24,8 +24,8 @@
 	{/each}
     </table>
   </div>
-  <div class="bg-orange-100 w-100">
-    <h2 class="bg-orange-700 text-white text-xl text-center p-2 mb-4">MISSING:</h2>
+  <div class="bg-red-100 w-100">
+    <h2 class="bg-red-700 text-white text-xl text-center p-2 mb-4">MISSING:</h2>
     <table class="w-full">
       {#each missing as m}
 	<tr>
@@ -36,8 +36,8 @@
 	{/each}
     </table>
   </div>
-  <div class="bg-indigo-100 p-4">
-    <h3 class="text-indigo-700 font-bold mb-2">Dependencies ({Object.keys(packages).length})</h3>
+  <div class="bg-gray-100 p-4">
+    <h3 class="text-gray-700 font-bold mb-2">Dependencies ({Object.keys(packages).length})</h3>
     <ul>
     {#each Object.keys(packages) as p}
       <li class="p-1">
@@ -47,7 +47,7 @@
       {getCategoryFor(p, data)}
     </span>
 	  {:else}
-    <span class="bg-indigo-500 text-white text-sm px-2 py-1 rounded shadow mr-1 mb-1">
+    <span class="bg-gray-500 text-white text-sm px-2 py-1 rounded shadow mr-1 mb-1">
       {getCategoryFor(p, data)}
     </span>
     {/if}

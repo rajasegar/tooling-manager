@@ -2,9 +2,6 @@
 
  import Accordion from './Accordion.svelte';
  import AccordionItem from './AccordionItemMissing.svelte';
- import alternative from '../assets/alternative.svg';
-
- import Popover from './Popover.svelte';
 
  let active = null;
  

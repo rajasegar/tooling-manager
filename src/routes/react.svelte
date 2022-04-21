@@ -9,6 +9,7 @@
  import DevDependencies from '../lib/DevDependencies.svelte';
  import PopularProjects from "../lib/PopularProjects.svelte";
  import Tabs from '../lib/Tabs.svelte';
+ import Timeline from '../lib/Timeline.svelte';
 
  import devTooling from '../data/dev';
  import reactDevTooling from '../data/dev/frameworks/react';
@@ -93,12 +94,17 @@
   <title>Tooling Manager - React</title>
 </svelte:head>
 
-<div class="w-full min-h-screen bg-gray-100 mx-auto p-2">
+<div class="w-full min-h-screen bg-gray-100 mx-auto">
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold text-gray-900">React</h1>
+    </div>
+  </header>
   
   {#if !isPkgUploaded}
     <div class="max-w-7xl mx-auto flex flex-row items-center justify-evenly content-center">
       <div class="">
-	<h1 class="text-4xl text-gray-500 p-2 text-center">Scan your package.json</h1>
+	<h1 class="text-3xl text-gray-500 p-2 text-center">Scan your package.json</h1>
 	<button type="button" class="text-white text-3xl py-2 px-6 m-4 rounded bg-gradient-to-b from-gray-700 to-gray-800 hover:from-pink-500 hover:to-yellow-500" on:click={()=>{fileinput.click();}}>
 	  Choose File
 	</button>
@@ -108,7 +114,7 @@
 	<h2 class="text-3xl text-gray-400">OR</h2>
       </div>
       <div class="ml-4">
-	<h1 class="text-4xl text-gray-500 p-2 text-center">Read from a Github repository</h1>
+	<h1 class="text-3xl text-gray-500 p-2 text-center">Read from a Github repository</h1>
 	<form on:submit|preventDefault={handleSubmit}>
 	  <label class="block text-gray-500 m-2" for="txtUrl"><span class="text-red-500">*</span> Enter repository url here...</label>
 	  <input class="block w-full p-2 border border-gray-300 rounded m-2"
@@ -143,20 +149,21 @@
 
     <div class="max-w-7xl mx-auto">
       <PopularProjects repos={repos} on:message={handleRepoMessage} >
-	<span slot="heading">React Projects</span>
+	<span slot="heading">Boilerplates</span>
       </PopularProjects>
     </div>
   {:else}
     <div class="max-w-7xl mx-auto flex items-center">
-      <h1 class="text-4xl text-indigo-700 p-2 text-center">{pkg.name}</h1>
+      <h1 class="text-2xl text-gray-600 p-2 text-center">{pkg.name}</h1>
       <div>
 	<button on:click={() => {reset()}} class="bg-red-500 px-2 py-1 text-sm text-white hover:bg-red-600 rounded shadow">Clear &times;</button>
       </div>
 
     </div>
-    <Tabs labels={["Dependencies","DevDependencies"]}>
+    <Tabs labels={["Dependencies","DevDependencies", "Timeline"]}>
       <Dependencies data={prodData} packages={currDependencies} slot="tab1" />
       <DevDependencies data={devData} packages={currDevDependencies} slot="tab2" />
+      <Timeline packages={currDependencies} slot="tab3" />
     </Tabs>
   {/if}
 
