@@ -21,7 +21,7 @@ export const post: RequestHandler = async ({ request, locals }) => {
 					.replace('<', '')
 
 			    const latest = data['dist-tags'] ? data['dist-tags'].latest : '--'
-			    const latestDate = latest === '--' ? '--' : new Date(latest).toDateString();
+			    const latestDate = latest === '--' ? '--' : new Date(data.time[latest]).toDateString();
 
 				return {
 					name: d,
