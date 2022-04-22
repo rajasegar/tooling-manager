@@ -8,8 +8,9 @@
  import Dependencies from '../lib/Dependencies.svelte';
  import DevDependencies from '../lib/DevDependencies.svelte';
  import PopularProjects from "../lib/PopularProjects.svelte";
- import Tabs from '../lib/Tabs.svelte';
+ import TabsPill from '../lib/Tabs.svelte';
  import Timeline from '../lib/Timeline.svelte';
+ import { Tabs, TabList, TabPanel, Tab } from '../lib/Tabs';
 
  import devTooling from '../data/dev';
  import reactDevTooling from '../data/dev/frameworks/react';
@@ -160,11 +161,28 @@
       </div>
 
     </div>
-    <Tabs labels={["Dependencies","DevDependencies", "Timeline"]}>
+    <TabsPill labels={["Dependencies","DevDependencies", "Timeline"]}>
       <Dependencies data={prodData} packages={currDependencies} slot="tab1" />
       <DevDependencies data={devData} packages={currDevDependencies} slot="tab2" />
-      <Timeline packages={currDependencies} slot="tab3" />
+      <div slot="tab3">
+    <Tabs>
+	<TabList>
+		<Tab>Dependencies Timeline</Tab>
+		<Tab>DevDependencies Timeline</Tab>
+	</TabList>
+
+	<TabPanel>
+      <Timeline packages={currDependencies} />
+	</TabPanel>
+
+	<TabPanel>
+      <Timeline packages={currDevDependencies} />
+	</TabPanel>
+
     </Tabs>
+
+      </div>
+    </TabsPill>
   {/if}
 
 </div>

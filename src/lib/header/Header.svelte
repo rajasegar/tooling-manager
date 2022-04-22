@@ -31,7 +31,7 @@
 		    <a class="list-none text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {$page.url.pathname === '/react' ? activeNav : ''}" sveltekit:prefetch href="/react" >React</a>
 		    <a class="list-none text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {$page.url.pathname === '/sveltejs' ? activeNav : ''}" sveltekit:prefetch href="/sveltejs" >Svelte</a>
 		    <a class="list-none text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {$page.url.pathname === '/compare' ? activeNav : ''}" sveltekit:prefetch href="/compare" >Compare</a>
-		    <a class="list-none text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {$page.url.pathname === '/scaffold' ? activeNav : ''}" sveltekit:prefetch href="/scaffold" >Scaffold</a>
+		    <!-- <a class="list-none text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {$page.url.pathname === '/scaffold' ? activeNav : ''}" sveltekit:prefetch href="/scaffold" >Scaffold</a> -->
 
 		  </div>
 		</div>

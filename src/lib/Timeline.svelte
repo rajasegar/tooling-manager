@@ -25,13 +25,14 @@
  }
 
 </script>
-<div class="container bg-gray-200 mx-auto w-full h-full">
+<div class="container mx-auto w-full h-full">
   <div class="relative wrap overflow-hidden p-10 h-full">
-    <div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%"></div>
+
 
     {#await getVersionDate()}
-      <span class="text-2xl text-gray-700 mb-4">Fetching publish date...</span>
+      <span class="text-2xl text-gray-700 mb-4">Loading timeline...</span>
     {:then response}
+    <div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%"></div>
       {#each response as r, idx}
 	<TimelineItem dir={idx % 2 === 0 ? 'left' : ''}>
 	  <span slot="title">{r.time}</span>

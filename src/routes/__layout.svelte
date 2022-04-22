@@ -13,6 +13,6 @@
   <p>
     <a class="text-blue-400 hover:text-blue-100"
        href="https://github.com/rajasegar/tooling-manager">Github</a>
-    Built with <a class="text-blue-400 hover:text-blue-100" href="https://kit.svelte.dev">SvelteKit</a></p>
+    Built with <span class="text-red-500">&hearts;</span> using <a class="text-blue-400 hover:text-blue-100" href="https://kit.svelte.dev">SvelteKit</a> by <a class="text-blue-400" href="https://twitter.com/rajasegar_c">Rajasegar</a> </p>
 </footer>
 

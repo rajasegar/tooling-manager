@@ -41,7 +41,7 @@
     <ul>
     {#each Object.keys(packages) as p}
       <li class="p-1">
-	<a class="text-indigo-600 hover:text-black" href="https://npmjs.com/package/{p}" target="_blank">{p}</a>
+	<a class="text-blue-600 hover:text-black" href="https://npmjs.com/package/{p}" target="_blank">{p}</a>
 	{#if getCategoryFor(p, data) === 'unknown'}
     <span class="bg-red-500 text-white text-sm px-2 py-1 rounded shadow mr-1 mb-1">
       {getCategoryFor(p, data)}
