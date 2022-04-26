@@ -16,6 +16,10 @@
   <div class="flex flex-col items-center">
   <h1 class="text-7xl font-bold text-gray-700 mt-4">Tooling Manager</h1>
   <span class="text-gray-500 p-4">Compare your JavaScript Tech Stack against industry standard boilerplates.</span>
+  <div>
+    <a href="https://www.producthunt.com/posts/tooling-manager?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-tooling&#0045;manager" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=343208&theme=light" alt="Tooling&#0032;Manager - Compare&#0032;your&#0032;JS&#0032;Tech&#0032;Stack&#0032;against&#0032;other&#0032;boilerplates | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+  </div>
+
   </div>
   <main class="mt-2 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6  lg:px-8 ">
         <div class="grid grid-cols-2 gap-4 sm:text-center lg:text-left">
@@ -38,13 +42,17 @@
           </div>
 	  </div>
 	  <div>
+	    <a href="/foundmissing.png">
 	    <img src="/foundmissing.png" alt="found and missing"/>
+	    </a>
 	  </div>
         </div>
 
 	<div class="grid grid-cols-2 gap-4 sm:text-center lg:text-left mt-16">
 	  <div>
+	    <a href="/comparison.png">
 	    <img src="/comparison.png" alt="comparison">
+	    </a>
 	  </div>
 	  <div>
           <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
@@ -65,7 +73,7 @@
 	  </div>
         </div>
 
-	<div class="grid grid-cols-2 gap-4 sm:text-center lg:text-left mt-16">
+	<div class="grid grid-cols-2 gap-4 sm:text-center lg:text-left mt-16 mb-8">
 	  <div>
           <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
             <span class="block xl:inline">Generate </span>
@@ -84,9 +92,12 @@
           </div>
 	  </div>
 	  <div>
+	    <a href="/timeline.png">
 	    <img src="/timeline.png" alt="timeline"/>
+	    </a>
 	  </div>
         </div>
+
 
   </main>
   
