@@ -16,9 +16,9 @@
   <div class="flex flex-col items-center">
   <h1 class="text-7xl font-bold text-gray-700 mt-4">Tooling Manager</h1>
   <span class="text-gray-500 p-4">Compare your JavaScript Tech Stack against industry standard boilerplates.</span>
-  <div>
+  <!--<div>
     <a href="https://www.producthunt.com/posts/tooling-manager?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-tooling&#0045;manager" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=343208&theme=light" alt="Tooling&#0032;Manager - Compare&#0032;your&#0032;JS&#0032;Tech&#0032;Stack&#0032;against&#0032;other&#0032;boilerplates | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-  </div>
+  </div>-->
 
   </div>
   <main class="mt-2 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6  lg:px-8 ">
